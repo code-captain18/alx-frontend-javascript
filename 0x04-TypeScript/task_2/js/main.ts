@@ -3,6 +3,17 @@ interface DirectorInterface {
 	workFromHome(): string;
 	getCoffeeBreak(): string;
 	workDirectorTasks(): string;
+
+interface TeacherInterface {
+	workFromHome(): string;
+	getCoffeeBreak(): string;
+	workTeacherTasks(): string;
+}
+
+interface DirectorInterface {
+	workFromHome(): string;
+	getCoffeeBreak(): string;
+	workDirectorTasks(): string;
 }
 
 interface TeacherInterface {
@@ -36,7 +47,8 @@ class Teacher implements TeacherInterface {
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-	if (Number(salary) < 500) {
+	salary = typeof salary === 'number' ? salary : Number(salary);
+	if (salary < 500) {
 		return new Teacher();
 	}
 	return new Director();
