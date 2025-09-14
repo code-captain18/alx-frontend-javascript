@@ -19,3 +19,14 @@ const teacher1: Teacher = {
   location: "London",
   contract: false // additional property
 };
+
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+// Example usage:
+// console.log(printTeacher("John", "Doe")); // Output: J. Doe
